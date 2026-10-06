@@ -1,16 +1,52 @@
-## Hi there 👋
+# Святослав Тихомиров
 
-<!--
-**FDB1228/FDB1228** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Data Scientist** · Python, SQL, Machine Learning, A/B-тесты
 
-Here are some ideas to get you started:
+Студент с сильной математической подготовкой. Имею учебный опыт в анализе данных, машинном обучении и статистике (проекты и курсы), а также в построении и применении численных методов. Хочу применять знания на реальных задачах и развивать навыки работы с большими данными.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Проекты
+
+### [Credit_scoring](https://github.com/FDB1228/Credit_scoring): кредитный скоринг (Kaggle, Альфа-Банк)
+
+- Прогноз вероятности дефолта (PD) по данным БКИ. Данные соревнования: 1,5 млн клиентов, около 12,5 млн кредитных записей, дисбаланс классов 1:27.
+- Агрегировал историю кредитов на уровень клиента (226 признаков); стратифицированная K-fold кросс-валидация; оценка сдвига между train и test через PSI и adversarial validation.
+- Бленд LightGBM + CatBoost: ROC AUC 0,766 (Gini 0,53) на кросс-валидации против 0,734 у логистической регрессии; lift 3,57 в топ-10 % по риску; интерпретация через SHAP.
+
+### [house_prices](https://github.com/FDB1228/house_prices): предсказание цен на дома (Kaggle)
+
+- Регрессия цены по 79 характеристикам (1460 домов): обработка пропусков по смыслу признаков, feature engineering (92 признака), Box-Cox.
+- Сравнил 7 моделей (Ridge, Lasso, ElasticNet, Random Forest, Gradient Boosting, XGBoost, LightGBM) с подбором гиперпараметров на 5-fold CV. Лучшая одиночная модель ElasticNet: RMSE 0,114 на логарифме цены, R² = 0,92.
+- Итоговый ансамбль ElasticNet + Lasso + Ridge: Public Score (RMSLE) на Kaggle 0,12441.
+
+## Навыки
+
+Python · SQL · Machine Learning · A/B-тесты · анализ данных · математическая статистика · теория вероятностей · теория случайных процессов · английский B2
+
+## Стек
+
+| Область               | Инструменты                                       |
+| --------------------- | ------------------------------------------------- |
+| Работа с данными      | pandas, polars, Hadoop + Spark                    |
+| Визуализация          | matplotlib, seaborn                               |
+| Математика            | NumPy, SciPy (`scipy.stats`), PyTorch             |
+| Базы данных           | PostgreSQL, ClickHouse                            |
+| ML                    | scikit-learn, XGBoost, LightGBM, CatBoost, Optuna, SHAP |
+| Пайплайны             | Airflow                                           |
+| Инструменты           | Git, Jupyter, Google Colab, DBeaver               |
+
+## Образование
+
+- **2026 — н. в.** Российский университет дружбы народов имени Патриса Лумумбы, Инженерная академия. Программа: Data Science.
+- **2022 — 2026** МГТУ им. Н. Э. Баумана, факультет фундаментальных наук, кафедра прикладной математики (ФН-2). GPA: 4,03 / 5,0.
+
+## Дополнительное образование
+
+- **Янв. — июнь 2026** Deep Learning School, часть 2
+- **Окт. — дек. 2025** Deep Learning School, часть 1
+- **Июль 2025** Интенсив по A/B-тестированию A/B Week (ШАД Яндекса)
+- **Июнь — ноябрь 2024** Курс Data Engineer (МГТУ им. Н. Э. Баумана)
+
+## Контакты
+
+- Telegram: [@t_s_i_4](https://t.me/t_s_i_4)
+- Email: slavatichom04@gmail.com
