@@ -1,0 +1,183 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+\documentclass[a4paper,11pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[a4paper, top=1.3cm, bottom=1.2cm, left=1.8cm, right=1.8cm]{geometry}
+\usepackage{tabularx}
+\usepackage{datetime}
+\usepackage{multicol}
+
+% Заглушки для команд biblatex, оставшихся в старом .aux-файле.
+% Именно они печатали в шапке строку "ynt/global//global..." и хеш.
+\makeatletter
+\providecommand\abx@aux@refcontext[1]{}
+\providecommand\abx@aux@read@bbl@mdfivesum[1]{}
+\providecommand\abx@aux@defaultrefcontext[3]{}
+\providecommand\abx@aux@cite[2]{}
+\providecommand\abx@aux@segm[3]{}
+\providecommand\abx@aux@number[5]{}
+\providecommand\abx@aux@defaultlabelprefix[2]{}
+\makeatother
+
+% списки
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em, topsep=0pt, partopsep=0pt, itemsep=2pt, parsep=0pt}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\multicolsep}{4pt plus 2pt minus 1pt}
+\setlength{\columnsep}{1.5em}
+\renewcommand{\arraystretch}{1.25}
+
+% Секции: размеры отступов подобраны так, чтобы резюме
+% заполняло страницу целиком, но не переходило на вторую.
+\usepackage{titlesec}
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\vspace{-2pt}\titlerule]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+
+\usepackage{fontawesome5}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+	\pagestyle{empty}
+	
+	%----------------------------------------------------------------------------------------
+	%	TITLE
+	%----------------------------------------------------------------------------------------
+	\begin{tabularx}{\linewidth}{@{} C @{}}
+		\huge{Тихомиров Святослав} \\[4pt]
+		\Large{Data Scientist} \\[4pt]
+		\faGithub\ \href{https://github.com/FDB1228}{FDB1228} \ $|$ \
+		\faTelegram\ \href{https://t.me/t_s_i_4}{@t\_s\_i\_4} \ $|$ \
+		\faEnvelope\ \href{mailto:slavatichom04@gmail.com}{slavatichom04@gmail.com} \ $|$ \
+		\faMobile\ +7 910 366 52 58 \\
+	\end{tabularx}
+	
+	%----------------------------------------------------------------------------------------
+	%	ABOUT
+	%----------------------------------------------------------------------------------------
+	\section{О себе}
+	Студент с сильной математической подготовкой. Имею учебный опыт в анализе данных,
+	машинном обучении и статистике благодаря учебным проектам и курсам, также обладаю
+	опытом в построении и применении численных методов.
+	Хочу научиться применять свои знания на реальных задачах, а также развивать навыки
+	работы с большими данными.
+	
+	%----------------------------------------------------------------------------------------
+	%	EXPERIENCE (раскомментировать при необходимости)
+	%----------------------------------------------------------------------------------------
+	%\section{Опыт работы}
+	%\textbf{Стажер DS. Мегафон} \hfill февраль 2026 -- настоящее время \\
+	%Разрабатывал фичи в команде Realtime Scoring для MVP, получил стат. значимый инкремент
+	%к ROC-AUC на 1 п.п., на PR-AUC 1.5 п.п., создал витрину с фичами
+	%для двух доменов данных (обращения в тех. поддержку и смс-банкинг).
+	
+	%----------------------------------------------------------------------------------------
+	%	PROJECTS
+	%----------------------------------------------------------------------------------------
+	\section{Проекты}
+	\textbf{Кредитный скоринг (Альфа-Банк). Соревнование Kaggle}
+	\hfill \href{https://github.com/FDB1228/Credit_scoring}{github}
+	\begin{itemize}
+		\item Прогноз вероятности дефолта (PD) по данным БКИ: 1,5 млн клиентов, $\sim$12,5 млн кредитных записей, дисбаланс классов 1:27.
+		\item Агрегировал историю кредитов на уровень клиента (226 признаков); стратифицированная K-fold CV, оценка сдвига train/test через PSI и adversarial validation.
+		\item Бленд LightGBM + CatBoost (подбор параметров в Optuna): $ROC AUC$ 0.766 ($Gini$ 0.53) против 0.734 у логистической регрессии; lift 3.57 в топ-10\% по риску, интерпретация через SHAP.
+	\end{itemize}
+	
+	\textbf{Предсказание цен на дома. Соревнование Kaggle (House Prices)}
+	\hfill \href{https://github.com/FDB1228/house_prices}{github}
+	\begin{itemize}
+		\item Регрессия цены по 79 характеристикам (1460 домов): обработка пропусков по смыслу признаков, feature engineering (92 признака), Box-Cox.
+		\item Сравнил 7 моделей (Ridge, Lasso, ElasticNet, Random Forest, Gradient Boosting, XGBoost, LightGBM) с подбором гиперпараметров на 5-fold CV; лучшая~--- ElasticNet:Public Score (RMSLE) 0.12441, $R^2 = 0.92$.
+	\end{itemize}
+	
+	%\textbf{Прогнозирование продаж в магазинах. Соревнование Kaggle (апрель 2026)} \\
+	%Прогнозирование временных рядов продаж на основе данных крупной эквадорской сети
+	%продуктовых магазинов.
+	
+	%----------------------------------------------------------------------------------------
+	%	EDUCATION
+	%----------------------------------------------------------------------------------------
+	\section{Образование}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}
+		2022 -- 2026 & МГТУ им. Н.\,Э.~Баумана. Факультет фундаментальных наук. Кафедра прикладной математики (ФН-2). GPA: 4.03 / 5.0 \\
+		2026 -- н.\,в. & Российский университет дружбы народов имени Патриса Лумумбы. Инженерная академия. Программа: Data Science. \\
+	\end{tabularx}
+	
+	\section{Дополнительное образование}
+	\begin{tabularx}{\linewidth}{@{}l X@{}}
+		%Август 2025 & Современные рекомендательные системы (VK Education) \\
+		%Октябрь -- Декабрь 2025 & \href{https://akinshinn.github.io/Modern_NLP.pdf}{Современный NLP. Большие языковые модели} (VK Education) \\
+		Июнь -- Ноябрь 2024     & Курс Data Engineer (МГТУ им. Н.\,Э.~Баумана) \\
+		Июль 2025               & Интенсив по A/B-тестированию. A/B Week (ШАД Яндекса) \\
+		Октябрь -- Декабрь 2025 & Deep Learning School (часть 1) \\
+		Январь -- Июнь 2026     & Deep Learning School (часть 2) \\
+	\end{tabularx}
+	
+	%----------------------------------------------------------------------------------------
+	%	SKILLS
+	%----------------------------------------------------------------------------------------
+	\section{Навыки}
+	\begin{multicols}{2}
+		\raggedright
+		\begin{itemize}
+			\item Python
+			\item SQL
+			\item Machine Learning
+			\item A/B-тесты
+			\item Мат. статистика, теория случайных процессов, теория вероятностей
+			\item Анализ данных
+			\item Английский язык B2
+		\end{itemize}
+	\end{multicols}
+	
+	\section{Стек}
+	\begin{multicols}{2}
+		\raggedright
+		\begin{itemize}
+			\item Работа с данными: Hadoop + Spark, pandas, polars
+			\item Визуализация: matplotlib, seaborn
+			\item Мат. библиотеки: numpy, pytorch, scipy.stats
+			\item Базы данных: PostgreSQL, ClickHouse
+			\item ML-библиотеки: scikit-learn, xgboost, LightGBM, CatBoost, Optuna, SHAP
+			\item Пайплайны: Airflow
+			\item Инструменты: Git, Jupyter, Google Colab, DBeaver
+		\end{itemize}
+	\end{multicols}
+
+	
+\end{document}
